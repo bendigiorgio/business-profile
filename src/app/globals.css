@@ -2,26 +2,191 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+@layer base {
+  body {
+    @apply font-ryo-gothic;
   }
-}
+  :root {
+    --site-viewport-height: 100vh;
+    --site-header-height: 5.75rem;
+  }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  @media (min-width: 960px) {
+    :root {
+      --site-header-height: 5.5rem;
+    }
+  }
+  :root {
+    --site-main-margin: var(--site-header-height);
+    --site-scroll-margin: 8.875rem;
+  }
+
+  @media (min-width: 960px) {
+    :root {
+      --site-main-margin: 6.125rem;
+      --site-scroll-margin: 11.625rem;
+    }
+  }
+  .container {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 45rem;
+    padding-left: 8.333333333333332vw;
+    padding-right: 8.333333333333332vw;
+  }
+
+  @media (min-width: 960px) {
+    .container {
+      max-width: 90rem;
+      padding-left: min(11.11111111111111%, 10rem);
+      padding-right: min(11.11111111111111%, 10rem);
+    }
+  }
+
+  .custom-link {
+    overflow: hidden;
+    position: relative;
+  }
+
+  .custom-link:after,
+  .custom-link:before {
+    background: var(--border-color);
+    bottom: 0;
+    content: "";
+    height: 1px;
+    left: 0;
+    pointer-events: none;
+    position: absolute;
+    transition-property: transform;
+    transition-timing-function: cubic-bezier(0.47, 0.16, 0.24, 1);
+    width: 100%;
+  }
+
+  .custom-link:before {
+    transform: scaleX(1);
+    transform-origin: left top;
+    transition-duration: 0.65s;
+  }
+
+  .custom-link:after {
+    transform: scaleX(0);
+    transform-origin: right top;
+    transition-duration: 0.35s;
+  }
+
+  @media (hover: hover) {
+    .custom-link:hover:before {
+      transform: scaleX(0);
+      transform-origin: right top;
+      transition-duration: 0.35s;
+    }
+
+    .custom-link:hover:after {
+      transform: scaleX(1);
+      transform-origin: left top;
+      transition-duration: 0.65s;
+    }
+  }
+
+  .hover-card:before {
+    top: -10px;
+    left: -10px;
+    transform-origin: top left;
+    content: "";
+    position: absolute;
+    display: block;
+    background-color: #fff;
+    width: 1px;
+    height: 50%;
+    border-top-left-radius: 1px;
+    border-bottom-left-radius: 1px;
+    transition-duration: 0.7s;
+    transition-property: border-radius, transform;
+    transition-timing-function: cubic-bezier(0.47, 0.16, 0.24, 1);
+  }
+
+  .hover-card-secondary:before {
+    top: -10px;
+    left: -10px;
+    transform-origin: top left;
+    content: "";
+    position: absolute;
+    display: block;
+    background-color: #fff;
+    width: 10%;
+    height: 1px;
+    border-top-left-radius: 1px;
+    border-bottom-left-radius: 1px;
+    transition-duration: 0.7s;
+    transition-property: border-radius, transform;
+    transition-timing-function: cubic-bezier(0.47, 0.16, 0.24, 1);
+  }
+
+  .hover-card:before {
+    transform: scaleY(0);
+  }
+
+  .hover-card-secondary:before {
+    transform: scaleX(0);
+  }
+
+  .hover-card:after {
+    transform-origin: bottom right;
+    content: "";
+    position: absolute;
+    display: block;
+    background-color: #fff;
+    bottom: -10px;
+    right: -10px;
+    width: 1px;
+    height: 50%;
+    transition-duration: 0.7s;
+    border-top-right-radius: 1px;
+    border-bottom-right-radius: 1px;
+    transition-property: border-radius, transform;
+    transition-timing-function: cubic-bezier(0.47, 0.16, 0.24, 1);
+  }
+
+  .hover-card-secondary:after {
+    transform-origin: bottom right;
+    content: "";
+    position: absolute;
+    display: block;
+    background-color: #fff;
+    bottom: -10px;
+    right: -10px;
+    width: 10%;
+    height: 1px;
+    transition-duration: 0.7s;
+    border-top-right-radius: 1px;
+    border-bottom-right-radius: 1px;
+    transition-property: border-radius, transform;
+    transition-timing-function: cubic-bezier(0.47, 0.16, 0.24, 1);
+  }
+
+  .hover-card-secondary:after {
+    transform: scaleX(0);
+  }
+
+  .hover-card:after {
+    transform: scaleY(0);
+  }
+
+  @media (hover: hover) {
+    .hover-card:hover:before {
+      transform: scaleY(1);
+    }
+
+    .hover-card-secondary:hover:before {
+      transform: scaleX(1);
+    }
+
+    .hover-card:hover:after {
+      transform: scaleY(1);
+    }
+
+    .hover-card-secondary:hover:after {
+      transform: scaleX(1);
+    }
+  }
 }
