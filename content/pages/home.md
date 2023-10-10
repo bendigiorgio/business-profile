@@ -43,4 +43,51 @@ features:
       url: /
       style: primary
     _template: linkFeature
+  - title: SERVICE
+    subtitle: ORINが手がける6つの支援
+    items:
+      - title: ビジョン策定
+        subtitle: 組織の進むべき方向を、個人や社会の視点を大切に、再構築します。
+        points:
+          - フューチャーインサイトリサーチ
+          - ビジョンデザインワークショップ
+      - title: 事業開発
+        subtitle: デザインの手法を用い、新しい事業/サービスを創ります。
+        points:
+          - デザインリサーチ
+          - コンセプト立案
+          - プロダクト戦略策定
+          - UI/UXプロトタイピング
+      - title: 事業改善
+        subtitle: 既存事業/サービスをデザインの手法で磨き上げます。
+        points:
+          - ユーザーリサーチ
+          - UXのリデザイン
+          - UIのリデザイン
+      - title: コミュニケーション設計
+        subtitle: 伝えたいことを明確化し、ユーザーに刺さる表現を設計します。
+        points:
+          - ブランドデザイン
+          - コミュニケーションデザイン
+      - title: 組織設計
+        subtitle: デザイン組織の仕組み作りから、顧客ロイヤリティ向上まで支援します。
+        points:
+          - デザイン組織設計
+          - CXマネジメント組織策定
+      - title: 人材育成
+        subtitle: 必要なデザイン人材の定義から、育成まで実施します。
+        points:
+          - デザイン人材研修
+          - デザイン人材制度策定
+    _template: gridFeature
+  - title: TEAM
+    subtitle: チーム
+    members:
+      - member: content/team/ben.md
+      - member: content/team/terry.md
+      - member: content/team/kerry.md
+      - member: content/team/ikeda.md
+      - member: content/team/alex.md
+    _template: memberFeature
 ---
+

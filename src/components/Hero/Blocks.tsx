@@ -1,19 +1,12 @@
 "use client";
 
-import {
-  Exact,
-  HomePageBlocks,
-  HomePageQuery,
-} from "../../../tina/__generated__/types";
-import { tinaField, useTina } from "tinacms/dist/react";
+import { HomePageQuery } from "../../../tina/__generated__/types";
+import { tinaField } from "tinacms/dist/react";
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import Image from "next/image";
-import { format, parseISO } from "date-fns";
 import Separator from "../ui/separator";
 import AnimatedHeader from "../ui/animated-header";
-import { BlockTemplate } from "tinacms";
 import { TinaMarkdown } from "tinacms/dist/rich-text";
 import { ChevronRight } from "lucide-react";
 import { Button } from "@nextui-org/react";

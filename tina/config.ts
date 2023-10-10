@@ -188,7 +188,7 @@ export default defineConfig({
           },
           {
             name: "features",
-            label: "特徴",
+            label: "Blocks",
             type: "object",
             list: true,
             templates: [
@@ -241,6 +241,92 @@ export default defineConfig({
                   },
                 ],
               },
+              {
+                name: "gridFeature",
+                label: "グリッド",
+                fields: [
+                  {
+                    name: "title",
+                    label: "タイトル",
+                    type: "string",
+                    required: true,
+                  },
+                  { name: "subtitle", label: "サブタイトル", type: "string" },
+                  {
+                    name: "items",
+                    label: "アイテム",
+                    type: "object",
+                    ui: {
+                      itemProps(item) {
+                        return {
+                          label: item.title,
+                        };
+                      },
+                    },
+                    list: true,
+                    fields: [
+                      {
+                        name: "title",
+                        label: "タイトル",
+                        type: "string",
+                        required: true,
+                      },
+                      {
+                        name: "subtitle",
+                        label: "サブタイトル",
+                        type: "string",
+                      },
+                      {
+                        name: "points",
+                        label: "ポイント",
+                        type: "string",
+                        list: true,
+                      },
+                    ],
+                  },
+                ],
+              },
+              {
+                name: "memberFeature",
+                label: "メンバー",
+                fields: [
+                  {
+                    name: "title",
+                    label: "タイトル",
+                    type: "string",
+                    required: true,
+                  },
+                  { name: "subtitle", label: "サブタイトル", type: "string" },
+                  {
+                    name: "members",
+                    label: "メンバー",
+                    ui: {
+                      itemProps(item) {
+                        const name = item.member
+                          .split(".md")[0]
+                          .split("/")
+                          .at(-1)
+                          .toUpperCase();
+                        return {
+                          label: name,
+                        };
+                      },
+                    },
+                    type: "object",
+                    list: true,
+                    required: true,
+                    fields: [
+                      {
+                        name: "member",
+                        required: true,
+                        label: "メンバー",
+                        type: "reference",
+                        collections: ["teamMember"],
+                      },
+                    ],
+                  },
+                ],
+              },
             ],
           },
         ],
@@ -274,6 +360,54 @@ export default defineConfig({
           },
           { name: "body", label: "本文", type: "rich-text", required: true },
           { name: "image", label: "画像", type: "image" },
+        ],
+      },
+      {
+        name: "teamMember",
+        label: "チームメンバー",
+        path: "content/team",
+        fields: [
+          {
+            name: "name",
+            label: "名前",
+            type: "string",
+            isTitle: true,
+            required: true,
+          },
+          {
+            name: "englishName",
+            label: "romaji",
+            type: "string",
+            required: true,
+          },
+          { name: "title", label: "タイトル", type: "string", required: true },
+          { name: "description", label: "説明", type: "string" },
+          { name: "image", label: "画像", type: "image", required: true },
+          {
+            name: "links",
+            label: "リンク",
+            type: "object",
+            list: true,
+            fields: [
+              {
+                name: "title",
+                label: "タイトル",
+                type: "string",
+                required: true,
+              },
+              {
+                name: "url",
+                label: "URL",
+                type: "string",
+                required: true,
+              },
+              {
+                name: "icon",
+                label: "アイコン",
+                type: "string",
+              },
+            ],
+          },
         ],
       },
     ],
